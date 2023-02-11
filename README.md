@@ -9,6 +9,16 @@ Once you have setup the MySql database. Go to "DB Query.text" to get certain que
 
 -- For any other database the pom need to be updated with respective dependency jdbc driver. Also application properties need to be updated accordingly.
 
+--Use provided postman collection "Autodesk.Employee.postman_collection.json" for testing the application in postman after running.
+
+to Download postman go to the below mentioned link
+
+https://www.postman.com/downloads/
+
+-- "Autodesk Employee Records - Swagger.yaml" is the swagger open api specification of the application, to read it go to the below mentioned url and put swagger there.
+
+https://editor.swagger.io/
+
 # API Endpoints
 The API provides the following endpoints:
 
