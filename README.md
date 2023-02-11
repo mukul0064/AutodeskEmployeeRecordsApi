@@ -3,6 +3,12 @@
 
 This is a simple API working as Autodesk Employee service used to perform CRUD service for Employee records for inventory.
 
+# Pre-requisites
+Before Running the application you need a database setup, the application supports mySql.
+Once you have setup the MySql database. Go to "DB Query.text" to get certain queries for setting up the employee records table for testing.
+
+-- For any other database the pom need to be updated with respective dependency jdbc driver. Also application properties need to be updated accordingly.
+
 # API Endpoints
 The API provides the following endpoints:
 
