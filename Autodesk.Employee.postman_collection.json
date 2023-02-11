@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "87a1c243-8b43-4d41-bad7-76d305f24244",
+		"name": "Autodesk.Employee",
+		"description": "This Postman collection is a simple API working as Employee service used to perform CRUD service for Employee records.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Records Endpoint",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autodesk/records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autodesk",
+						"records"
+					]
+				},
+				"description": "This get method extract all the employee records from inventory."
+			},
+			"response": []
+		},
+		{
+			"name": "Record Update Endpoint",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employeeId\": \"4664\",\r\n  \"employeeFirstName\": \"Mukul\",\r\n  \"employeeLastName\": \"Goswami\",\r\n  \"designation\": \"Developer\",\r\n  \"department\": \"Research and Development\",\r\n  \"salary\": \"150000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autodesk/record/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autodesk",
+						"record",
+						"update"
+					]
+				},
+				"description": "This put method updates an employee record based on employee details passed in request body."
+			},
+			"response": []
+		},
+		{
+			"name": "Record Addition Endpoint",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employeeId\": \"4665\",\r\n  \"employeeFirstName\": \"Mukul\",\r\n  \"employeeLastName\": \"Goswami\",\r\n  \"designation\": \"Developer\",\r\n  \"department\": \"Research and Development\",\r\n  \"salary\": \"150000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autodesk/record/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autodesk",
+						"record",
+						"add"
+					]
+				},
+				"description": "This post method adds an employee record based on employee details passed in request body.\nThe employeeId passed in request body should be unique and should not be present in the database to get Success otherwise as duplicate record is present it will result in failure."
+			},
+			"response": []
+		},
+		{
+			"name": "Record Delete Endpoint",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"employeeId\": \"4664\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autodesk/record/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autodesk",
+						"record",
+						"delete"
+					]
+				},
+				"description": "This put method delete an employee record based on employee id from inventory."
+			},
+			"response": []
+		},
+		{
+			"name": "Health Endpoint",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autodesk/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autodesk",
+						"health"
+					]
+				},
+				"description": "Performs a basic health check to verify API is up and running."
+			},
+			"response": []
+		}
+	]
+}

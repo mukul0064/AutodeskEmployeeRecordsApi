@@ -1,0 +1,25 @@
+CREATE SCHEMA `autodesk` ;
+
+CREATE TABLE `autodesk`.`employee` (
+  `employeeId` INT NOT NULL,
+  `employeeFirstName` VARCHAR(45) NOT NULL,
+  `employeeLastName` VARCHAR(45) NOT NULL,
+  `designation` VARCHAR(45) NOT NULL,
+  `department` VARCHAR(45) NOT NULL,
+  `salary` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`employeeId`));
+
+
+INSERT INTO `autodesk`.`employee` (`employeeId`, `employeeFirstName`, `employeeLastName`, `designation`, `department`, `salary`) VALUES ('01', 'Mukul', 'Goswami', 'Developer', 'Research and Development', '150000');
+INSERT INTO `autodesk`.`employee` (`employeeId`, `employeeFirstName`, `employeeLastName`, `designation`, `department`, `salary`) VALUES ('02', 'Shubham', 'Rajput', 'DevOps', 'Infrastructure', '100000');
+INSERT INTO `autodesk`.`employee` (`employeeId`, `employeeFirstName`, `employeeLastName`, `designation`, `department`, `salary`) VALUES ('03', 'Shubham', 'Verma', 'HR', 'Finance', '80000');
+INSERT INTO `autodesk`.`employee` (`employeeId`, `employeeFirstName`, `employeeLastName`, `designation`, `department`, `salary`) VALUES ('04', 'Jigyashu', 'Mishra', 'HR', 'Payroll', '80000');
+INSERT INTO `autodesk`.`employee` (`employeeId`, `employeeFirstName`, `employeeLastName`, `designation`, `department`, `salary`) VALUES ('05', 'Jitendra', 'Yadav', 'Network Admin', 'Administration', '90000');
+
+SELECT `employee`.`employeeId`,
+    `employee`.`employeeFirstName`,
+    `employee`.`employeeLastName`,
+    `employee`.`designation`,
+    `employee`.`department`,
+    `employee`.`salary`
+FROM `autodesk`.`employee`;

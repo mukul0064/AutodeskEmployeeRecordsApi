@@ -1,0 +1,207 @@
+---
+openapi: 3.0.0
+info:
+  title: AUTODESK Employee Records API
+  description: This is a simple API working as Autodesk Employee Service used to perform CRUD service for Employee records for inventory.
+  contact:
+    email: mukul0064@gmail.com
+  version: 1.0.0
+tags:
+- name: get-inventory
+  description: Get all the employee records.
+- name: update-inventory
+  description: Update the details of employee for a given employee ID.
+- name: add-inventory
+  description: Add an employee record.
+- name: delete-inventory
+  description: Delete a employee record based on given employee ID.
+- name: health
+  description: Performs a basic health check to verify API is up and running.
+paths:
+  /autodesk/records:
+    get:
+      tags:
+      - get-inventory
+      summary: Searches inventory for getting all employee records
+      description: |
+        This get method extract all the employee records from inventory.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResponseBody'
+  /autodesk/record/update:
+    put:
+      tags:
+      - update-inventory
+      summary: updates an inventory item refering to employee record based on employee id.
+      description: |
+        This put method updates an employee record based on employee id from inventory.
+      requestBody:
+        description: RequestEvent consisting of employee details.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/RequestEvent'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResultResponse'
+  /autodesk/record/add:
+    post:
+      tags:
+      - add-inventory
+      summary: Adds an employee record to inventory.
+      description: |
+        This post method add an employee record in inventory.
+      requestBody:
+        description: RequestEvent consisting of employee details.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/RequestEvent'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /autodesk/record/delete:
+    put:
+      tags:
+      - delete-inventory
+      summary: delete an inventory item refering to employee record based on employee id.
+      description: |
+        This put method delete an employee record based on employee id from inventory.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employeeId:
+                  type: string
+                  description: Employee ID. Must be 4 digit positive number greater than 999.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /autodesk/health:
+    get:
+      tags:
+      - health
+      summary: Performs a basic health check
+      description: Performs a basic health check to verify API is up and running.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+components:
+  schemas:
+    RequestEvent:
+      type: object
+      required:
+      - employeeId
+      - employeeFirstName
+      - employeeLastName
+      - designation
+      - department
+      - salary
+      properties:
+        employeeId:
+          type: string
+          description: Employee ID. Must be 4 digit positive number greater than 999.
+          example: 4664
+        employeeFirstName:
+          type: string
+          description: First name of the employee
+          example: Mukul
+        employeeLastName:
+          type: string
+          description: Last name of the employee
+          example: Goswami
+        designation:
+          type: string
+          description: Designation of the employee
+          example: Developer
+        department:
+          type: string
+          description: Department for which the employee work
+          example: Research and Development
+        salary:
+          type: string
+          description: Monthly in hand salary of the employee
+          example: "150000"
+    ResponseBody:
+      type: object
+      required:
+      - employeeId
+      - employeeFirstName
+      - employeeLastName
+      - designation
+      - department
+      - salary
+      properties:
+        employeeId:
+          type: string
+          description: Employee ID. Must be 4 digit positive number greater than 999.
+          example: 4664
+        employeeFirstName:
+          type: string
+          description: First name of the employee
+          example: Mukul
+        employeeLastName:
+          type: string
+          description: Last name of the employee
+          example: Goswami
+        designation:
+          type: string
+          description: Designation of the employee
+          example: Developer
+        department:
+          type: string
+          description: Department for which the employee work
+          example: Research and Development
+        salary:
+          type: string
+          description: Monthly in hand salary of the employee
+          example: "150000"
+    HealthStatus:
+      required:
+      - statusText
+      description: Response object that is returned for a successful health check
+      properties:
+        statusText:
+          type: string
+          description: The HealthStatus provides the well-being status of the API.
+          example: OK
+    UpdateResultResponse:
+      type: string
+      description: status message
+      example: Employee record updated successfully
+      enum:
+        - Employee record updated successfully
+        - Employee record update failed
+    StatusResponse:
+      type: string
+      description: status message
+      example: Success
+      enum:
+        - Success
+        - Failure
