@@ -93,3 +93,4 @@ target/quarkus-app/quarkus/generated-bytecode.jar
 target/quarkus-app/quarkus/transformed-bytecode.jar
 target/quarkus-artifact.properties
 target/quarkus/bootstrap/dev-app-model.dat
+target/classes/META-INF/maven/com.autodesk/employee-records/pom.properties
